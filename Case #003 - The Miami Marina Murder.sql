@@ -1,7 +1,7 @@
 SELECT *
   FROM person
   WHERE address LIKE "3__ Ocean Drive"
-  OR (first_name LIKE "%ul" AND last_name LIKE "%ez")
+  OR name LIKE "%ul %ez"
 
 
 
