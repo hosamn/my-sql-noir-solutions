@@ -1,1 +1,1 @@
-# my-sql-noir-solutions
+# SQL Noir Solutions
