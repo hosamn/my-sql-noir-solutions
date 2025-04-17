@@ -1,10 +1,7 @@
 SELECT *
   FROM person
-  WHERE address LIKE "3% Ocean Drive%"
-  OR 
-  
-lives on 300ish "Ocean Drive"
-whose first name ends with "ul" and his last name ends with "ez".
+  WHERE address LIKE "3__ Ocean Drive"
+  OR (first_name LIKE "%ul" AND last_name LIKE "%ez")
 
 
 
