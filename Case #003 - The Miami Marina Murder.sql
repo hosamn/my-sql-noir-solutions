@@ -31,6 +31,8 @@ SELECT name, alias, occupation, address, transcript, hotel_name, check_in_date, 
 -- Carlos Mendez	Los Ojos	Fisherman	369 Ocean Drive	I saw someone check into a hotel on August 13. The guy looked nervous.	Coral View Resort	19860812	Asked for room service menu	This is just a misunderstanding.
 -- Raul Gutierrez	The Cobra	Nightclub Owner	45 Sunset Ave	I heard someone checked into a hotel with "Sunset" in the name.	Marina Paradise Inn	19860815	NULL	Alright! I've been running a blackmail operation.
 
+
+
 SELECT name, alias, occupation, address, transcript, hotel_name, check_in_date, suspicious_activity, confession
   FROM person
   JOIN interviews ON person.id = interviews.person_id
@@ -38,3 +40,9 @@ SELECT name, alias, occupation, address, transcript, hotel_name, check_in_date, 
   JOIN surveillance_records ON person.id = surveillance_records.person_id
   JOIN confessions ON person.id = confessions.person_id
   WHERE surveillance_records.suspicious_activity IS NOT NULL
+
+-- name	alias	occupation	address	transcript	hotel_name	check_in_date	suspicious_activity	confession
+-- Robert Smith	Red Rob	Mechanic	789 Beach Road	NULL	Sunset Marina Hotel	19860813	Seen arguing with an unknown person	I was just walking my dog that night.
+-- Thomas Brown	The Fox	Dock Worker	234 Port Street	NULL	Sunset Palm Resort	19860813	Left suddenly at 3 AM	Alright! I did it. I was paid to make sure he never left the marina alive.
+
+
