@@ -26,14 +26,12 @@ SELECT * FROM guest
 -- I overheard someone say, "Meet me at the marina, dock 3.
 
 
-
 SELECT * FROM guest
   FULL OUTER JOIN witness_statements ON guest.id = witness_statements.guest_id
   FULL OUTER JOIN attire_registry ON guest.id = attire_registry.guest_id
   FULL OUTER JOIN marina_rentals ON guest.id = marina_rentals.renter_guest_id
   FULL OUTER JOIN final_interviews ON guest.id = final_interviews.guest_id
-  WHERE marina_rentals.dock_number LIKE "%3%"
-
+  WHERE marina_rentals.dock_number IS 3
 
 
 SELECT * FROM guest
@@ -42,4 +40,8 @@ SELECT * FROM guest
   FULL OUTER JOIN marina_rentals ON guest.id = marina_rentals.renter_guest_id
   FULL OUTER JOIN final_interviews ON guest.id = final_interviews.guest_id
   WHERE (guest.invitation_code LIKE "%-R" AND attire_registry.note IS "navy suit, white tie")
+
+
+-- id	name	occupation	invitation_code	id	guest_id	clue	id	guest_id	note	id	dock_number	renter_guest_id	rental_date	boat_name	id	guest_id	confession
+-- 105	Mike Manning	Wealth Reallocation Expert	VIP-R	NULL	NULL	NULL	48	105	navy suit, white tie	44	3	105	19870520	Coastal Spirit	105	105	I was the one who took the crystal. I guess I need a lawyer now?
 
