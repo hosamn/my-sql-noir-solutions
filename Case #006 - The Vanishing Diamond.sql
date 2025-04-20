@@ -1,6 +1,45 @@
+SELECT * FROM crime_scene WHERE location LIKE "%Fontainebleau%"
 
-
-
+-- id	date	location	description
+-- 48	19870520	Fontainebleau Hotel	The Heart of Atlantis necklace disappeared. Many guests were questioned but only two of them gave valuable clues. One of them is a really famous actor. The other one is a woman who works as a consultant for a big company and her first name ends with "an".
 
 
 SELECT * FROM guest WHERE occupation IS "Actor" OR (occupation IS "Consultant" AND name LIKE "%an %")
+
+
+SELECT * FROM guest
+  FULL OUTER JOIN witness_statements ON guest.id = witness_statements.guest_id
+  FULL OUTER JOIN attire_registry ON guest.id = attire_registry.guest_id
+  FULL OUTER JOIN marina_rentals ON guest.id = marina_rentals.renter_guest_id
+  FULL OUTER JOIN final_interviews ON guest.id = final_interviews.guest_id
+  WHERE occupation IS "Actor" OR (occupation IS "Consultant" AND name LIKE "%an %")
+
+
+SELECT * FROM guest
+  FULL OUTER JOIN witness_statements ON guest.id = witness_statements.guest_id
+  FULL OUTER JOIN attire_registry ON guest.id = attire_registry.guest_id
+  FULL OUTER JOIN marina_rentals ON guest.id = marina_rentals.renter_guest_id
+  FULL OUTER JOIN final_interviews ON guest.id = final_interviews.guest_id
+  WHERE guest.id IN (116, 129)
+
+-- I saw someone holding an invitation ending with "-R". He was wearing a navy suit and a white tie.
+-- I overheard someone say, "Meet me at the marina, dock 3.
+
+
+
+SELECT * FROM guest
+  FULL OUTER JOIN witness_statements ON guest.id = witness_statements.guest_id
+  FULL OUTER JOIN attire_registry ON guest.id = attire_registry.guest_id
+  FULL OUTER JOIN marina_rentals ON guest.id = marina_rentals.renter_guest_id
+  FULL OUTER JOIN final_interviews ON guest.id = final_interviews.guest_id
+  WHERE marina_rentals.dock_number LIKE "%3%"
+
+
+
+SELECT * FROM guest
+  FULL OUTER JOIN witness_statements ON guest.id = witness_statements.guest_id
+  FULL OUTER JOIN attire_registry ON guest.id = attire_registry.guest_id
+  FULL OUTER JOIN marina_rentals ON guest.id = marina_rentals.renter_guest_id
+  FULL OUTER JOIN final_interviews ON guest.id = final_interviews.guest_id
+  WHERE (guest.invitation_code LIKE "%-R" AND attire_registry.note IS "navy suit, white tie")
+
