@@ -91,8 +91,21 @@ LEFT JOIN phone_records as p2 ON person.id=p2.recipient_id
 WHERE person.id in (11, 58, 133)
 
 
-
 -- SELECT COUNT(person_id) FROM vehicle_registry
 -- WHERE car_make LIKE "%lambo%"
 -- GROUP BY person_id ORDER BY person_id
 
+
+
+SELECT * FROM person
+LEFT JOIN vehicle_registry ON person.id=vehicle_registry.person_id
+LEFT JOIN hotel_checkins ON person.id=hotel_checkins.person_id
+LEFT JOIN surveillance_records ON surveillance_records.hotel_checkin_id=hotel_checkins.id
+LEFT JOIN final_interviews ON person.id=final_interviews.person_id
+LEFT JOIN catering_orders ON person.id=catering_orders.person_id
+WHERE person.occupation LIKE "%carpenter%"
+AND vehicle_registry.car_make LIKE"%LAMBO%"
+
+
+-- id	name	occupation	address	id	person_id	plate_number	car_make	car_model	id	person_id	hotel_name	check_in_date	room_number	id	hotel_checkin_id	note	id	person_id	confession	id	person_id	order_date	item	amount	
+-- 97	Marco Santos	Carpenter	112 Forestwood Way	41	97	EFG901	Lamborghini	Countach	NULL	NULL	NULL	NULL	NULL	NULL	NULL	NULL	97	97	I ordered the hit. It was me. You caught me.	63	97	19871030	Sex on the Beach
