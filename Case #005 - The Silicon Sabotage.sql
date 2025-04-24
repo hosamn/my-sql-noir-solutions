@@ -78,5 +78,8 @@ FROM employee_records
 LEFT JOIN facility_access_logs ON employee_records.id=facility_access_logs.employee_id
 WHERE facility_access_logs.facility_name is "Facility 18"
 
-
+-- id	employee_name	department	occupation	home_address	id	employee_id	facility_name	access_date	access_time
+-- 99	Elizabeth Gordon	Engineering	Solutions Architect	147 Coastal Pine Rd, Doral, FL	74	99	Facility 18	19890421	08:55
+-- 290	Katie Watkins	Quality Control	Quality Assurance Manager	345 Quantum Creek Road, Aventura, FL	59	290	Facility 18	19890421	12:56
+-- 297	Hristo Bogoev	Engineering	Principal Engineer	901 Quantum Ocean Way, Key Biscayne, FL	81	297	Facility 18	19890421	09:01  <<<<<<<<<<<<<<<<<<<<<<<<
 
