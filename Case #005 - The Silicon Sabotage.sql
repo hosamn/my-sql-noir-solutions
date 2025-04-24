@@ -22,3 +22,14 @@ WHERE incident_id is (
 -- 59	74	134	I saw someone holding a keycard marked QX- succeeded by a two-digit odd number.
 
 
+SELECT *
+FROM employee_records AS R
+LEFT JOIN keycard_acces14s_logs ON R.id=keycard_access_logs.employee_id
+LEFT JOIN computer_access_logs ON R.id=computer_access_logs.employee_id
+LEFT JOIN facility_access_logs ON R.id=facility_access_logs.employee_id
+LEFT JOIN email_logs AS E1 ON R.id=E1.sender_employee_id
+LEFT JOIN email_logs AS E2 ON R.id=E2.recipient_employee_id
+WHERE R.id IN (145, 134)
+LIMIT 10
+
+
